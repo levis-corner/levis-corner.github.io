@@ -213,6 +213,7 @@ main {
             margin-bottom: 10px;
             padding-bottom: 25px;
             border-bottom: 3px solid #f0f0f0;
+            display: flex;
         }
         
         .update-item:last-child {
