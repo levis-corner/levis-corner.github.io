@@ -150,3 +150,132 @@ main {
 .close:hover {
   color: #bbb;
 }
+
+        /* Main layout container */
+        .page-container {
+            display: flex;
+            gap: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Main content area - takes remaining space */
+        .main-content {
+            flex: 1;
+            min-width: 0; /* Prevents flex item from overflowing */
+        }
+        
+        /* Updates panel wrapper */
+        .updates-wrapper {
+            flex: 0 0 300px; /* Fixed width, won't grow or shrink */
+            display: flex;
+            flex-direction: column;
+            position: sticky;
+            top: 20px;
+        }
+        
+        /* Empty flexible rectangle */
+        .empty-rectangle {
+            flex: 1; /* Takes available space */
+            min-height: 0px; /* Minimum height */
+            max-height: 85px; /* Maximum height */
+            background: transparent; /* Invisible by default */
+            border: 1px dashed #ccc; /* Optional: visual indicator */
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+        
+        /* Hide the border if you want it completely invisible */
+        .empty-rectangle.invisible {
+            border: none;
+        }
+        
+        /* Updates panel */
+        .updates-panel {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+        
+        .updates-panel h3 {
+            margin-top: 0;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            color: #333;
+        }
+        
+        .update-item {
+            margin-bottom: 10px;
+            padding-bottom: 25px;
+            border-bottom: 3px solid #f0f0f0;
+        }
+        
+        .update-item:last-child {
+            margin-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .update-date {
+            font-size: 0.8rem;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        
+        .update-item img {
+            float:left;
+            width: 15%;
+            flex-shrink: 0;
+            height: auto;
+            display: block;
+            padding: 5px;
+        }
+
+        .update-text {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .update-content {
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        
+        /* Responsive design - stack on smaller screens */
+        @media (max-width: 992px) {
+            .page-container {
+                flex-direction: column;
+            }
+            
+            .updates-wrapper {
+                flex: 0 0 auto; /* Reset flex for mobile */
+                width: 100%;
+                position: static;
+                order: 1;
+            }
+            
+            .empty-rectangle {
+                display: none; /* Hide empty rectangle on mobile */
+            }
+
+            .update-text {
+                width: 100%;
+                padding-left: 15px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .page-container {
+                gap: 15px;
+                padding: 0 15px;
+            }
+            
+            .updates-panel {
+                padding: 15px;
+                max-height: none;
+            }
+        }
