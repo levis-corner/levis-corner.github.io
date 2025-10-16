@@ -102,48 +102,237 @@ main {
   font-size: large;
   font-weight: bold;
 }
-
-/* formatting for comic html */
+/* Comic page layout */
 .container-comic {
-  display: flex;
-  align-items: flex-start; /* Align items to the top */
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 20px;
 }
 
-.image-comic {
-  margin-right: 20px; /* Space between image and text */
-}
-
-.text-comic {
+/* Top section: Image + Description side by side */
+.comic-header {
   display: flex;
-  flex-direction: column; /* Stack text vertically */
-  justify-content: space-between; /* Space between top and bottom text */
-  height: 200px; /* Adjust height as needed */
-  padding-bottom: 60px; /* Adjust based on the footer height */
-
+  gap: 30px;
+  margin-bottom: 40px;
+  align-items: flex-start;
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  padding: 40px;
+  min-height: 400px;
 }
 
-.image-comic img {
-  width: 100%; /* Make the image take up the full width of its container */
-  max-width: 300px; /* Set a max width to limit how large it can get */
-  height: auto; /* Maintain aspect ratio */
+.comic-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: var(--comic-bg-image);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(12px) brightness(0.8);
+    z-index: -1;
+    
+    /* Smooth transition for background changes */
+    transition: filter 0.5s ease-in-out, background-image 0.5s ease-in-out;
 }
 
-/* Make the table containing comic update details */
-
-.bottom-text table {
-  width: 100%; /* Make the table take up the full width of its container */
-  border-collapse: collapse; /* Collapse borders for a cleaner look */
+/* Optional: Add a loading state */
+.comic-header.loading::before {
+    filter: blur(20px) brightness(0.6);
 }
 
-.bottom-text th, .bottom-text td {
-  border: 1px solid #ddd; /* Add borders to table cells */
-  padding: 8px; /* Add padding for better spacing */
-  text-align: left; /* Align text to the left */
+/* Add gradient masks to blur edges */
+.comic-header::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  
+  /* Gradient mask that's transparent in middle, opaque at edges */
+  background: 
+    /* Top edge blur */
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.8) 0%,
+      transparent 15%,
+      transparent 85%,
+      rgba(0, 0, 0, 0.8) 100%
+    ),
+    /* Left edge blur */
+    linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.8) 0%,
+      transparent 15%,
+      transparent 85%,
+      rgba(0, 0, 0, 0.8) 100%
+    );
+  
+  z-index: -1;
+  mix-blend-mode: multiply;
 }
 
-.bottom-text th {
-  background-color: #f2f2f2; /* Light gray background for header */
+.comic-image {
+  flex: 0 0 300px; /* Fixed width for image */
+}
+
+.comic-image img {
+  width: 80%;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.comic-description {
+  flex: 1;
+  min-width: 0; /* Prevents text overflow */
+}
+
+.comic-description h2 {
+  margin-top: 0;
+  color: #ffffff;
+  border-bottom: 2px solid #ffffff;
+  padding-bottom: 10px;
+}
+
+.comic-description p {
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.social-link img {
+  width: 20px;
+  height: 20px;
+}
+
+/* Bottom section: Table */
+.comic-chapters {
+  width: 100%;
+}
+
+.comic-chapters h2 {
+  color: #ffffff;
+  border-bottom: 2px solid #ffffff;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.comic-chapters table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgb(135, 135, 135);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.comic-chapters th {
+  background-color: #3a3a3a;
+  padding: 12px 15px;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 2px solid #dee2e6;
+  color: #ffffff; /* Ensure white text */
+  transition: all 0.3s ease; /* Smooth transition */
+}
+
+.comic-chapters td {
+  padding: 12px 15px;
+  color: #ffffff; /* White text by default */
+  transition: all 0.3s ease; /* Smooth transition */
+}
+
+/* Row hover - invert colors */
+.comic-chapters tr:hover {
+  background-color: #f8f9fa;
+}
+
+.comic-chapters tr:hover td {
+  color: #000000; /* Black text on hover */
+  background-color: #f8f9fa; /* Light background */
+}
+
+.comic-chapters tr:hover th {
+  color: #000000; /* Black text for header on hover */
+  background-color: #e9ecef; /* Slightly different light background for header */
+}
+
+/* Individual cell hover (optional) */
+.comic-chapters td:hover {
+  background-color: #e9ecef; /* Slightly darker on individual cell hover */
+  color: #000000;
+}
+
+/* Link styles */
+.comic-chapters a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.comic-chapters tr:hover a {
+  color: #000000; /* Black links on hover */
+}
+
+.comic-chapters a:hover {
+  background-color: rgba(0, 0, 0, 0.1); /* Subtle background on link hover */
+  text-decoration: underline;
+}
+
+.comic-chapters tr:hover a:hover {
+  background-color: rgba(0, 0, 0, 0.2); /* Darker background when link is hovered in inverted row */
+  color: #000000;
+}
+
+/* Platform icons - ensure they work with inversion */
+.comic-chapters th img {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  margin-right: 5px;
+  filter: brightness(0) invert(1); /* Make icons white by default */
+  transition: all 0.3s ease;
+}
+
+.comic-chapters tr:hover th img {
+  filter: brightness(0) invert(0); /* Make icons black on hover */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .comic-header {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .comic-image {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  
+  .comic-chapters {
+    overflow-x: auto;
+  }
+  
+  .comic-chapters table {
+    min-width: 600px;
+  }
 }
 
 /* modals */
