@@ -6,6 +6,11 @@
     <link rel="stylesheet" href="/style.css">
     <title>Levi's Corner</title>
     <link rel="icon" type="image/x-icon" href="/asset/logo.svg">
+    <style>
+    :root {
+        --comic-bg-image: url('/levis-corner.github.io-main/gallery/cover_apoc_knight.png');
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -20,18 +25,27 @@
     </nav>
     
     <div class="container-comic">
-        <div class="image-comic">
-            <img src="/gallery/cover_levis_discog.png" alt="Description of the image">
-        </div>
-        <div class="text-comic">
-            <div class="top-text">
-                <h2>Levi's Discography (2022)</h2>
-                <p>Art and Story: Levi Comics</p>
-                <p>LEVI'S DISCOGRAPHY is an anthology sci-fi series set in a post-post nuclear apocalypse world where society has already rebuilt itself on the ruins of the ones who came before. The story focuses on forces who intend to undo the changes humans have made on the face of the planet.</p>
+        <!-- Top Section: Image + Description Side by Side -->
+        <div class="comic-header">
+            <div class="comic-image">
+                <img src="/gallery/cover_levis_discog.png" alt="Levi's Discography Cover">
             </div>
-            <div class="bottom-text">
-                <h2>Chapters</h2>
-                <table>
+            <div class="comic-description">
+                <h2>Levi's Discography (2022)</h2>
+                <p><strong>Story:</strong> Levi Comics</p>
+                <p><strong>Art:</strong> Levi Comics</p>
+                <p>LEVI'S DISCOGRAPHY is an anthology sci-fi series set in a post-post nuclear apocalypse world where society has already rebuilt itself on the ruins of the ones who came before. The story focuses on forces who intend to undo the changes humans have made on the face of the planet.</p>
+                <p class="social-link">
+                    <img src="/levis-corner.github.io-main/asset/twitter.png" alt="Twitter"> 
+                    <a href="https://x.com/ApkKnghtCmc">Official Twitter Account</a>
+                </p>
+            </div>
+        </div>
+        
+        <!-- Bottom Section: Table -->
+        <div class="comic-chapters">
+            <h2>Chapters</h2>
+            <table>
                     <thead>
                         <tr>
                             <th>Chapter</th>
@@ -58,7 +72,6 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
         </div>
     </div>
 </body>
