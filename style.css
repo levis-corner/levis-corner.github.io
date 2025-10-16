@@ -68,6 +68,11 @@ main {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+.grid-item h4 {
+  font-size: large;
+  font-weight: bold;
+}
+
 /* formatting for comic html */
 .container-comic {
   display: flex;
@@ -167,7 +172,7 @@ main {
         
         /* Updates panel wrapper */
         .updates-wrapper {
-            flex: 0 0 300px; /* Fixed width, won't grow or shrink */
+            flex: 0 0 450px; /* Fixed width, won't grow or shrink */
             display: flex;
             flex-direction: column;
             position: sticky;
