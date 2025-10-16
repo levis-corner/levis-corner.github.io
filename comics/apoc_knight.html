@@ -4,8 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style.css">
-    <title>Levi's Corner</title>
-    <link rel="icon" type="image/x-icon" href="/asset/logo.svg">
+    <title>Apocalypse Knight - Levi's Corner</title>
+    <style>
+    :root {
+        --comic-bg-image: url('/gallery/cover_apoc_knight.png');
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -20,20 +24,27 @@
     </nav>
     
     <div class="container-comic">
-        <div class="image-comic">
-            <img src="/gallery/cover_apoc_knight.png" alt="Description of the image">
-        </div>
-        <div class="text-comic">
-            <div class="top-text">
-                <h2>Apocalypse Knight (2024)</h2>
-                <p>Story: Eidon Betz</p>
-                <p>Art: Levi Comics</p>
-                <p>APOCALYPSE KNIGHT follows the story of Dave Tanner, a home inventor who finds a new life after a nuclear apocalypse. Believing he is the only one equipped with the knowledge, skills, and morals to survive the wastelands, Dave takes it upon himself to become the defender of his town. Unbeknownst to him, there are sinister forces looming to seize power in the aftermath of this world shattering event. Forces that may be closer to home than he realizes.</p>
-                <p><img src = "/asset/twitter.png"> <a href="https://x.com/ApkKnghtCmc">Official Twitter Account</a></p>
+        <!-- Top Section: Image + Description Side by Side -->
+        <div class="comic-header">
+            <div class="comic-image">
+                <img src="/gallery/cover_apoc_knight.png" alt="Apocalypse Knight Cover">
             </div>
-            <div class="bottom-text">
-                <h2>Chapters</h2>
-                <table>
+            <div class="comic-description">
+                <h2>Apocalypse Knight (2024)</h2>
+                <p><strong>Story:</strong> Eidon Betz</p>
+                <p><strong>Art:</strong> Levi Comics</p>
+                <p>APOCALYPSE KNIGHT follows the story of Dave Tanner, a home inventor who finds a new life after a nuclear apocalypse. Believing he is the only one equipped with the knowledge, skills, and morals to survive the wastelands, Dave takes it upon himself to become the defender of his town. Unbeknownst to him, there are sinister forces looming to seize power in the aftermath of this world shattering event. Forces that may be closer to home than he realizes.</p>
+                <p class="social-link">
+                    <img src="/asset/twitter.png" alt="Twitter"> 
+                    <a href="https://x.com/ApkKnghtCmc">Official Twitter Account</a>
+                </p>
+            </div>
+        </div>
+        
+        <!-- Bottom Section: Table -->
+        <div class="comic-chapters">
+            <h2>Chapters</h2>
+            <table>
                     <thead>
                         <tr>
                             <th>Chapter</th>
@@ -84,7 +95,6 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
         </div>
     </div>
 </body>
