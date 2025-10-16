@@ -6,6 +6,11 @@
     <link rel="stylesheet" href="/style.css">
     <title>Levi's Corner</title>
     <link rel="icon" type="image/x-icon" href="/asset/logo.svg">
+    <style>
+    :root {
+        --comic-bg-image: url('/levis-corner.github.io-main/gallery/cover_apoc_knight.png');
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -19,20 +24,24 @@
         </ul>
     </nav>
     
-    <div class="container-comic">
-        <div class="image-comic">
-            <img src="/gallery/cover_iron_odyssey.png" alt="Description of the image">
-        </div>
-        <div class="text-comic">
-            <div class="top-text">
+   <div class="container-comic">
+        <!-- Top Section: Image + Description Side by Side -->
+        <div class="comic-header">
+            <div class="comic-image">
+                <img src="/gallery/cover_iron_odyssey.png" alt="Iron Odyssey Cover">
+            </div>
+            <div class="comic-description">
                 <h2>Iron Odyssey (2024)</h2>
-                <p>Story: Wojjie</p>
-                <p>Art: Levi Comics</p>
+                <p><strong>Story:</strong> Wojjie</p>
+                <p><strong>Art:</strong> Levi Comics</p>
                 <p>IRON ODYSSEY follows a Matoran wakes up in the middle of a battle with no memory of how he ended up in that situation. He now has to find out the truth behind his destiny that will have consequences on the matoran universe for the next 100 thousand years.</p>
             </div>
-            <div class="bottom-text">
-                <h2>Chapters</h2>
-                <table>
+        </div>
+        
+        <!-- Bottom Section: Table -->
+        <div class="comic-chapters">
+            <h2>Chapters</h2>
+            <table>
                     <thead>
                         <tr>
                             <th>Chapter</th>
@@ -56,7 +65,6 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
         </div>
     </div>
 </body>
