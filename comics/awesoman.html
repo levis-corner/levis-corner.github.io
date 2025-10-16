@@ -6,6 +6,11 @@
     <link rel="stylesheet" href="/style.css">
     <title>Levi's Corner</title>
     <link rel="icon" type="image/x-icon" href="/asset/logo.svg">
+    <style>
+    :root {
+        --comic-bg-image: url('https://comicalopinions.com/wp-content/uploads/2023/03/Awesoman-1-cover-768x992.jpg');
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -20,20 +25,27 @@
     </nav>
     
     <div class="container-comic">
-        <div class="image-comic">
-            <img src="https://comicalopinions.com/wp-content/uploads/2023/03/Awesoman-1-cover-768x992.jpg" alt="Description of the image">
-        </div>
-        <div class="text-comic">
-            <div class="top-text">
-                <h2>Awesomeman (2022)</h2>
-                <p>Art & Story: Omnis Comics</p>
-                <p>Color: Levi Comics</p>
-                <p>Content with mediocrity in an increasingly automated society, Guy Everyman's life is forever transformed one day walking home from work. A hero, Awesoman is born, through forces beyond Guy's control, he is now a super powered being, and must adjust to this drastic change in his reality.</p>
-                <p> <a href="https://linktr.ee/OmnisEntertainment">Official Omni Comic Linktree</a></p>
+        <!-- Top Section: Image + Description Side by Side -->
+        <div class="comic-header">
+            <div class="comic-image">
+                <img src="https://comicalopinions.com/wp-content/uploads/2023/03/Awesoman-1-cover-768x992.jpg" alt="Awesoman Cover">
             </div>
-            <div class="bottom-text">
-                <h2>Chapters</h2>
-                <table>
+            <div class="comic-description">
+                <h2>Awesomeman (2025)</h2>
+                <p><strong>Art & Story:</strong> Omnis Comics</p>
+                <p><strong>Colors:</strong> Levi Comics</p>
+                <p>Content with mediocrity in an increasingly automated society, Guy Everyman's life is forever transformed one day walking home from work. A hero, Awesoman is born, through forces beyond Guy's control, he is now a super powered being, and must adjust to this drastic change in his reality.</p>
+                <p class="social-link">
+                    <img src="https://static.vecteezy.com/system/resources/previews/068/842/029/non_2x/linktree-logo-outline-icon-linktree-app-transparent-background-free-png.png" alt="Linktree"> 
+                    <a href="https://linktr.ee/OmnisEntertainment">Official Linktree Account</a>
+                </p>
+            </div>
+        </div>
+        
+        <!-- Bottom Section: Table -->
+        <div class="comic-chapters">
+            <h2>Chapters</h2>
+            <table>
                     <thead>
                         <tr>
                             <th>Chapter</th>
@@ -49,7 +61,6 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
         </div>
     </div>
 </body>
